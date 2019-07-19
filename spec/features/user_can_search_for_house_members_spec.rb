@@ -8,7 +8,7 @@ feature 'User can search for westeros house members' do
 
     # And I select "Greyjoy" from the dropdown
     # And I click on "Get Members"
-    select "Greyjoy", from: :state
+    select "Greyjoy", from: :house
     click_on "Get Members"
 
     # Then my path should be "/search" with "house=greyjoy" in the parameters
