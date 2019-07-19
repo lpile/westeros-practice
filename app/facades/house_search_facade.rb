@@ -1,8 +1,10 @@
 class HouseSearchFacade
   attr_reader :house
+  attr_accessor :id
 
   def initialize(house)
     @house = house
+    @id = nil
   end
 
   def members
@@ -17,11 +19,18 @@ class HouseSearchFacade
 
   private
 
-  def westeros_service
-    @_westeros_servide = WesterosService.new
+  def westeros_as_service
+    @_westeros_as_service ||= WesterosAsAServiceService.new
   end
 
   def member_data
-    @_member_data ||= westeros_service.get_member_data(@house)
+    find_house_id.each do |index|
+      @id = index[:id] if index[:name].downcase == @house.downcase
+    end
+    @_member_data ||= westeros_as_service.get_member_data(@id)
+  end
+
+  def find_house_id
+    @_find_house_id ||= westeros_as_service.get_house_ids
   end
 end
