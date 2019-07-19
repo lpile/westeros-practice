@@ -1,24 +1,32 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### User Story 1
 
-Things you may want to cover:
+You are the new web developer for Westeros. The IT staff has provided an API where you can get a listing of house members.
 
-* Ruby version
+Documentation: `https://westerosapi.herokuapp.com/`
 
-* System dependencies
+You are to create an app and complete this following user story:
 
-* Configuration
+```
+As a user
+When I visit "/"
+And I select "Greyjoy" from the dropdown
+And I click on "Get Members"
+Then my path should be "/search" with "house=greyjoy" in the parameters
+And I should see a message "7 Members"
+And I should see a list of the 7 members of House Greyjoy
+And I should see a name and id for each member.
+```
 
-* Database creation
+Your key is: egg
 
-* Database initialization
+### User Story 2
 
-* How to run the test suite
+Bad news. It looks like all of the Westeros IT staff have been poisoned. We are going to have to switch APIs.
 
-* Services (job queues, cache servers, search engines, etc.)
+We are now customers of Westeros As A Service
 
-* Deployment instructions
+Documentation: `http://westeros-as-a-service.herokuapp.com/`
 
-* ...
+Your key is: dragon
