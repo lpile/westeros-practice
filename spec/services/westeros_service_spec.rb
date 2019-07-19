@@ -4,13 +4,10 @@ RSpec.describe WesterosService do
   it "gets results" do
     service = WesterosService.new
 
-    result = service.get_results('stark')
+    result = service.get_member_data('stark')
 
-    expect(result).to have_key(:data)
-    expect(result[:data].first).to have_key(:id)
-    expect(result[:data].first).to have_key(:type)
-    expect(result[:data].first).to have_key(:attributes)
-    expect(result[:data].first[:attributes).to have_key(:name)
-    expect(result[:data].first[:attributes).to have_key(:members)
+    expect(result.first).to have_key(:name)
+    expect(result.first).to have_key(:id)
+    expect(result.first).to have_key(:house_id)
   end
 end
