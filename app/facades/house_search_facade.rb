@@ -6,11 +6,13 @@ class HouseSearchFacade
   end
 
   def members
-    members = get_member_data(@house)
+    @members = get_member_data(@house).map do |member_data|
+      House.new(member_data)
+    end
   end
 
   def member_count
-
+    members.count
   end
 
   def conn
@@ -22,6 +24,6 @@ class HouseSearchFacade
 
   def get_member_data(house_name)
     response = conn.get("/api/v1/house/#{house_name}")
-    JSON.parse(response.body, symbolize_names: true)[:data]
+    JSON.parse(response.body, symbolize_names: true)[:data].first[:attributes][:members]
   end
 end
